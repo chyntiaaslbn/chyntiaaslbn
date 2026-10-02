@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil & Galeri - Chyntia Dewi Ray Silaban</title>
+    
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Pengaturan Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --hijau-pemetaan: #2A9D8F;
+            --orange-kreatif: #F4A261;
+            --orange-hover: #E76F51;
+            --biru-geomatika: #264653;
+            --biru-muda: #E8F1F5;
+            --kartu-putih: rgba(255, 255, 255, 0.92);
+            --teks-utama: #2D3748;
+            --teks-sekunder: #4A5568;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FFEDD5 0%, #E6FFFA 50%, #E0F2FE 100%);
+            background-attachment: fixed;
+            color: var(--teks-utama);
+            line-height: 1.6;
+        }
+
+        /* Navbar Navigasi */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--biru-geomatika);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--orange-kreatif);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--teks-utama);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hijau-pemetaan);
+        }
+
+        /* Section Layout Universal */
+        section {
+            padding: 100px 8% 60px 8%;
+        }
+
+        .judul-bagian {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--biru-geomatika);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .judul-bagian::after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, var(--orange-kreatif), var(--hijau-pemetaan));
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* 1. Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .sapaan {
+            background-color: var(--biru-muda);
+            color: var(--hijau-pemetaan);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid var(--hijau-pemetaan);
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: var(--biru-geomatika);
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(45deg, var(--orange-kreatif), var(--hijau-pemetaan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status {
+            font-size: 1.1rem;
+            color: var(--teks-sekunder);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-utama {
+            background-color: var(--orange-kreatif);
+            color: white;
+            box-shadow: 0 4px 12px rgba(244, 162, 97, 0.4);
+        }
+
+        .btn-utama:hover {
+            background-color: var(--orange-hover);
+            transform: translateY(-3px);
+        }
+
+        .btn-sekunder {
+            border: 2px solid var(--hijau-pemetaan);
+            color: var(--hijau-pemetaan);
+            background-color: transparent;
+        }
+
+        .btn-sekunder:hover {
+            background-color: var(--hijau-pemetaan);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .foto-frame {
+            position: relative;
+            width: 280px;
+            height: 350px;
+            border-radius: 20px;
+            background-color: var(--biru-geomatika);
+        }
+
+        .foto-frame::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            width: 100%;
+            height: 100%;
+            border: 4px solid var(--orange-kreatif);
+            border-radius: 24px;
+            z-index: -1;
+        }
+
+        .foto-frame::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            right: -12px;
+            width: 100%;
+            height: 100%;
+            border: 4px solid var(--hijau-pemetaan);
+            border-radius: 24px;
+            z-index: -2;
+        }
+
+        .foto-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        /* 2. Tentang Aku & Fun Facts */
+        .tentang-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .tentang-teks {
+            background-color: var(--kartu-putih);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--hijau-pemetaan);
+        }
+
+        .tentang-teks p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: var(--teks-utama);
+        }
+
+        .fun-facts {
+            background-color: var(--kartu-putih);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--orange-kreatif);
+        }
+
+        .fun-facts h3 {
+            color: var(--biru-geomatika);
+            margin-bottom: 15px;
+        }
+
+        .fact-item {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .fact-item strong {
+            color: var(--hijau-pemetaan);
+        }
+
+        /* 3. Cerita & Jejak Kegiatan */
+        .timeline {
+            position: relative;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--orange-kreatif), var(--hijau-pemetaan), var(--biru-geomatika));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item.kiri {
+            left: 0;
+        }
+
+        .timeline-item.kanan {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--kartu-putih);
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--orange-kreatif);
+        }
+
+        .timeline-content h4 {
+            color: var(--biru-geomatika);
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+
+        .timeline-content .waktu {
+            font-size: 0.85rem;
+            color: var(--hijau-pemetaan);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .timeline-content p {
+            font-size: 0.88rem;
+            color: var(--teks-sekunder);
+        }
+
+        /* 4. GALERI KEGIATAN PER SEMESTER (DIPERBAIKI) */
+        .semester-group {
+            margin-bottom: 45px;
+            width: 100%;
+            clear: both; /* Memastikan setiap semester berada di baris baru */
+        }
+
+        .sub-judul-semester {
+            color: var(--orange-hover);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--hijau-pemetaan);
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        /* PENGATURAN GRID 5 FOTO PAS SEBARIS */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Tepat 5 Kolom Sebaris */
+            gap: 15px;
+            width: 100%;
+        }
+
+        .galeri-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            height: 160px; /* Ukuran proporsional untuk 5 kolom */
+            cursor: pointer;
+        }
+
+        .galeri-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .galeri-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(38, 70, 83, 0.92), rgba(244, 162, 97, 0.75));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .galeri-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .galeri-card:hover .galeri-overlay {
+            opacity: 1;
+        }
+
+        .galeri-overlay h4 {
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        .galeri-overlay p {
+            font-size: 0.72rem;
+            line-height: 1.2;
+        }
+
+        /* 5. Kontak & Footer */
+        .kontak-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .kontak-card {
+            background-color: var(--kartu-putih);
+            padding: 25px;
+            border-radius: 15px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--hijau-pemetaan);
+            transition: transform 0.3s ease;
+        }
+
+        .kontak-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--orange-kreatif);
+        }
+
+        .kontak-card h4 {
+            color: var(--biru-geomatika);
+            margin-bottom: 10px;
+        }
+
+        .kontak-card p, .kontak-card a {
+            color: var(--teks-sekunder);
+            font-size: 0.9rem;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        footer {
+            background-color: var(--biru-geomatika);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Responsif Layar HP/Tablet */
+        @media (max-width: 1024px) {
+            .galeri-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 kolom di tablet */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 5%;
+            }
+            
+            .nav-links {
+                gap: 12px;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                padding-top: 120px;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .tentang-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item.kanan {
+                left: 0%;
+            }
+
+            .galeri-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">chyntiaslbn<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tentang">Tentang Aku</a></li>
+            <li><a href="#cerita">Jejak Kegiatan</a></li>
+            <li><a href="#galeri">Galeri Foto</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <span class="sapaan">Halo, Selamat Datang! 👋</span>
+            <h1>Aku <span>Chyntia Dewi Ray Silaban</span></h1>
+            <p class="status">Mahasiswa Teknik Geomatika ITERA | Explorer</p>
+            <div class="hero-buttons">
+                <a href="#galeri" class="btn btn-utama">Lihat Foto Kegiatan</a>
+                <a href="#kontak" class="btn btn-sekunder">Sapa Aku</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="foto-frame">
+                <img src="foto-profil.png" alt="Foto Profil Chyntia D.R Silaban">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Tentang Aku & Fun Facts -->
+    <section id="tentang">
+        <h2 class="judul-bagian">Tentang Aku</h2>
+        <div class="tentang-container">
+            <div class="tentang-teks">
+                <p>Halo semuanya! Aku Chyntia D.R Silaban, mahasiswa aktif S1 Teknik Geomatika di Institut Teknologi Sumatera (ITERA) yang disiplin, bertanggung jawab, dan terbiasa bekerja secara terstruktur. Saat ini aku sedang menempuh perjalanan semester 5 yang penuh dengan pengalaman mengesankan.</p>
+                <p>Memiliki pengalaman kepemimpinan sebagai Ketua OSIS serta aktif terlibat dalam berbagai organisasi kemahasiswaan dan kepanitiaan kampus. Aku sangat tertarik mengembangkan keterampilan manajemen kegiatan, kepemimpinan, serta eksplorasi di bidang pemetaan, WebGIS, dan analisis spasial.</p>
+            </div>
+
+            <div class="fun-facts">
+                <h3>Fun Facts & Info 📍</h3>
+                <div class="fact-item"><strong>NIM:</strong> 124230059</div>
+                <div class="fact-item"><strong>IPK:</strong> 3.57</div>
+                <div class="fact-item"><strong>Pendidikan:</strong> S1 Teknik Geomatika ITERA</div>
+                <div class="fact-item"><strong>Keterampilan Software:</strong> ArcGIS, QGIS, Ms. Office</div>
+                <div class="fact-item"><strong>Karakter:</strong> Tegas, Komunikatif, Disiplin</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Cerita & Jejak Kegiatan -->
+    <section id="cerita">
+        <h2 class="judul-bagian">Cerita & Jejak Kegiatan</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item kiri">
+                <div class="timeline-content">
+                    <h4>Ketua OSIS SMK Negeri 1 Balige</h4>
+                    <span class="waktu">2022 - 2023</span>
+                    <p>Mengawasi jalannya kegiatan OSIS agar sesuai dengan tujuan organisasi dan kebijakan sekolah.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kanan">
+                <div class="timeline-content">
+                    <h4>PKL di Badan Pertanahan Nasional (BPN) Kab. Samosir</h4>
+                    <span class="waktu">Maret 2023 - Oktober 2023</span>
+                    <p>Membantu pengukuran bidang tanah, pengecekan batas & patok, pencatatan hasil ukur lapangan, pengarsipan berkas pertanahan, pengecekan peta bidang, dan input data pendukung.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kiri">
+                <div class="timeline-content">
+                    <h4>Pelatihan Pra-TD ITERA</h4>
+                    <span class="waktu">September 2024</span>
+                    <p>Mengikuti pelatihan Pra-Tingkat Dasar pengembangan kemahasiswaan di Institut Teknologi Sumatera.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kanan">
+                <div class="timeline-content">
+                    <h4>Sekretaris - Pemilihan Ketua Angkatan Geomatika 2024</h4>
+                    <span class="waktu">November 2024</span>
+                    <p>Bertanggung jawab dalam pencatatan administrasi selama proses pemilihan, penyusunan surat undangan, dan notulen rapat.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kiri">
+                <div class="timeline-content">
+                    <h4>Staff Divisi Kreatif - Paskah KMK ITERA 2025</h4>
+                    <span class="waktu">April 2025</span>
+                    <p>Membantu perencanaan dan pengembangan konsep kreatif acara, termasuk ide dekorasi, tema visual, dan materi promosi.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kanan">
+                <div class="timeline-content">
+                    <h4>Staff SubDivisi Perlombaan - Dies Natalis HMG ke-12</h4>
+                    <span class="waktu">Mei 2025</span>
+                    <p>Membantu merencanakan teknis pelaksanaan perlombaan, penyusunan peraturan, jadwal, dan koordinasi peserta.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kiri">
+                <div class="timeline-content">
+                    <h4>Staff Divisi Acara - Sikrab Teknik Geomatika 2024</h4>
+                    <span class="waktu">Agustus 2025</span>
+                    <p>Memandu jalannya acara secara langsung di hadapan peserta serta menjaga energi dan antusiasme selama kegiatan.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kanan">
+                <div class="timeline-content">
+                    <h4>🏆 Juara 1 JAMARA Liga Ilmiah ITERA 2025</h4>
+                    <span class="waktu">September 2025</span>
+                    <p>Meraih Juara 1 pada ajang JAMARA Liga Ilmiah di Institut Teknologi Sumatera.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kiri">
+                <div class="timeline-content">
+                    <h4>Staff Divisi Acara - First Gathering Geomatika 2025</h4>
+                    <span class="waktu">Oktober 2025</span>
+                    <p>Membantu merancang konsep dan alur kegiatan gathering sebagai ajang kebersamaan mahasiswa baru dan senior.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kanan">
+                <div class="timeline-content">
+                    <h4>Staff Liaison Officer - Riuh Wisuda Periode Nov 2025</h4>
+                    <span class="waktu">November 2025</span>
+                    <p>Penghubung antara panitia dengan tamu undangan, wisudawan, dan pihak terkait selama pelaksanaan acara wisuda.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kiri">
+                <div class="timeline-content">
+                    <h4>Master of Ceremony (MC) ORIENTERA 2025</h4>
+                    <span class="waktu">November 2025</span>
+                    <p>Memandu jalannya acara penyambutan mahasiswa baru ITERA secara langsung di hadapan peserta.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kanan">
+                <div class="timeline-content">
+                    <h4>Staff Internal - BPH Himpunan Mahasiswa Geomatika (HMG)</h4>
+                    <span class="waktu">Februari 2026 - Sekarang</span>
+                    <p>Menjaga kondusivitas dan keharmonisan internal himpunan melalui komunikasi aktif dan pendekatan personal.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kiri">
+                <div class="timeline-content">
+                    <h4>Bendahara - Buka Bersama HMG 2026</h4>
+                    <span class="waktu">Maret 2026</span>
+                    <p>Menyusun Rencana Anggaran Biaya (RAB) kegiatan secara rinci dan realistis sesuai kebutuhan acara.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item kanan">
+                <div class="timeline-content">
+                    <h4>Kepala Divisi Acara - Riuh Wisuda Periode April 2026</h4>
+                    <span class="waktu">April 2026</span>
+                    <p>Memimpin tim divisi acara dalam merancang konsep, menyusun rundown, dan memastikan rangkaian acara wisuda terlaksana sukses.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. GALERI KEGIATAN SEMESTER 1 - 5 (SEBARIS 5 FOTO & SEMESTER 2 DI BAWAH) -->
+    <section id="galeri">
+        <h2 class="judul-bagian">Galeri Kegiatan (Semester 1 - 5)</h2>
+
+        <!-- SEMESTER 1 (ISI 5 FOTO SEBARIS) -->
+        <div class="semester-group">
+            <h3 class="sub-judul-semester">Semester 1</h3>
+            <div class="galeri-grid">
+                <div class="galeri-card">
+                    <img src="fg.jpeg" alt="First Ghatering 2024">
+                    <div class="galeri-overlay">
+                        <h4>First Gathering 2024</h4>
+                        <p>Penyambutan Mahasiswa Baru Teknik Geomatika 2024.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="prakfisika.jpeg" alt="Praktikum Fisika">
+                    <div class="galeri-overlay">
+                        <h4>Praktikum Fisika Dasar</h4>
+                        <p>Pelaksanaan eksperimen ilmiah di laboratorium.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="tpb23.jpeg" alt="TPB23">
+                    <div class="galeri-overlay">
+                        <h4>Tahap Persiapan Bersama 23</h4>
+                        <p>Dokumentasi bersama seluruh rekan sekelas selama TPB.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="kulap.jpeg" alt="Kuliah Lapangan">
+                    <div class="galeri-overlay">
+                        <h4>Kuliah Lapangan Wawasan Geospasial</h4>
+                        <p>Kegiatan Pembelajaran langsung di lapangan.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="orientera.jpeg" alt="ORIENTERA">
+                    <div class="galeri-overlay">
+                        <h4>ORIENTEERING ITERA</h4>
+                        <p>Pelatihan Navigasi Darat melatih ketangkasan dan ketelitian.</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Pembungkus Semester 1 Ditutup Sempurna -->
+
+        <!-- SEMESTER 2 (MURNI DI BAWAH SEMESTER 1) -->
+        <div class="semester-group">
+            <h3 class="sub-judul-semester">Semester 2</h3>
+            <div class="galeri-grid">
+                <div class="galeri-card">
+                    <img src="RBL.jpeg" alt="RBL">
+                    <div class="galeri-overlay">
+                        <h4>Research Based Learning</h4>
+                        <p>Pelaksanaan Proyek Eksperimen Fisika Dasar berbasis Penelitian untuk menerapkan konsep-konsep dasar fisika.</p>
+                    </div>
+                </div>
+     		<div class="galeri-card">
+                    <img src="TPBGT.jpeg" alt="TPBGT">
+                    <div class="galeri-overlay">
+                        <h4>Geomatika TPB 23</h4>
+                        <p>Dokumentasi bersama seluruh rekan Geomatika TPB 23 .</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="NISKACUP.jpeg" alt="NISKACUP">
+                    <div class="galeri-overlay">
+                        <h4>Niscatera Cup</h4>
+                        <p>Aksi kompak dan penuh semangat dalam memberikan dukungan secara langsung kepada tim Geomatika yang sedang bertanding.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="DIES12.jpeg" alt="DIES12">
+                    <div class="galeri-overlay">
+                        <h4>DIES NATALIS HMG-12</h4>
+                        <p>Perayaan ulang tahun Himpunan Mahasiswa Geomatika ke-12 yang dimeriahkan dengan berbagai perlombaan dan momen kebersamaan antar-anggota.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="HEALING.jpeg" alt="HEALING">
+                    <div class="galeri-overlay">
+                        <h4>HEALING!</h4>
+                        <p>Momen rekreasi dan bersantai bersama di pantai untuk melepaskan penat di tengah padatnya aktivitas perkuliahan.</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Pembungkus Semester 2 Ditutup Sempurna -->
+
+
+        <!-- SEMESTER 3 -->
+        <div class="semester-group">
+            <h3 class="sub-judul-semester">Semester 3</h3>
+            <div class="galeri-grid">
+                <div class="galeri-card">
+                    <img src="GGS.jpeg" alt="GGS">
+                    <div class="galeri-overlay">
+                        <h4>GEOMATICS GOES TO SCHOOL</h4>
+                        <p>Kegiatan sosialisasi dan pengenalan program studi Teknik Geomatika ke sekolah-sekolah untuk menginspirasi para siswa calon mahasiswa baru.</p>
+                    </div>
+                </div>
+ 		<div class="galeri-card">
+                    <img src="PRAKPEMDAS.jpeg" alt="PRAKPEMDAS">
+                    <div class="galeri-overlay">
+                        <h4>PRAKTIKUM PEMETAAN DASAR</h4>
+                        <p>Kegiatan pembelajaran teknik survei dan pemetaan dasar menggunakan instrumen pengukuran langsung di lapangan.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="PRAKBDS.jpeg" alt="PRAKBDS">
+                    <div class="galeri-overlay">
+                        <h4>PRAKTIKUM BASIS DATA SPASIAL</h4>
+                        <p>Pelaksanaan olah data untuk merancang, mengelola, dan menganalisis sistem basis data spasial secara terstruktur.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="JAMARA.jpeg" alt="JAMARA">
+                    <div class="galeri-overlay">
+                        <h4>JUARA 1 JAMARA</h4>
+                        <p>Momen kebanggaan atas pencapaian meraih Juara 1 dalam ajang perlombaan karya tulis ilmiah Liga Ilmiah ITERA (LITERA) cabang JAMARA.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="GEOID.jpeg" alt="GEOID">
+                    <div class="galeri-overlay">
+                        <h4>GEOID : GUIDE FOR EDUCATION AND ORGANIZATION </h4>
+                        <p>Sesi pengenalan dan pembekalan nilai-nilai keorganisasian serta akademik bagi mahasiswa baru Teknik Geomatika.</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Pembungkus Semester 3 Ditutup Sempurna -->
+
+
+        <!-- SEMESTER 4 -->
+        <div class="semester-group">
+            <h3 class="sub-judul-semester">Semester 4</h3>
+            <div class="galeri-grid">
+                <div class="galeri-card">
+                    <img src="BUKBER.jpeg" alt="BUKBER">
+                    <div class="galeri-overlay">
+                        <h4>BUKA BERSAMA 2026</h4>
+                        <p>Acara silaturahmi dan buka puasa bersama untuk mempererat rasa kekeluargaan antar mahasiswa Teknik Geomatika.</p>
+                    </div>
+                </div>
+        	<div class="galeri-card">
+                    <img src="PEMTRIS.jpeg" alt="PEMTRIS">
+                    <div class="galeri-overlay">
+                        <h4>PRAKTIKUM PEMETAAN TERESTRIS</h4>
+                        <p>Sesi pengukuran dan pemetaan detail situasi permukaan bumi menggunakan peralatan survei terestris di lapangan.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="SURVEIGNSS.jpeg" alt="SURVEIGNSS">
+                    <div class="galeri-overlay">
+                        <h4>PRAKTIKUM SURVEI GNSS</h4>
+                        <p>Kegiatan akuisisi data koordinat presisi tinggi menggunakan teknologi penentuan posisi satelit GNSS (Global Navigation Satellite System).</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="SGM.jpeg" alt="SGM">
+                    <div class="galeri-overlay">
+                        <h4>SEHARI GEOMATIKA MENGAJAR</h4>
+                        <p>Pengabdian masyarakat melalui kegiatan mengajar interaktif untuk membagikan wawasan dan pengetahuan dasar kepada siswa.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="INTERNAL.jpeg" alt="INTERNAL">
+                    <div class="galeri-overlay">
+                        <h4>DEPARTEMEN INTERNAL HMG</h4>
+                        <p>Momen kebersamaan dan koordinasi jajaran Departemen Internal.</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Pembungkus Semester 4 Ditutup Sempurna -->
+
+
+        <!-- SEMESTER 5 -->
+        <div class="semester-group">
+            <h3 class="sub-judul-semester">Semester 5</h3>
+            <div class="galeri-grid">
+                <div class="galeri-card">
+                    <img src="PANITIA.jpeg" alt="PANITIA">
+                    <div class="galeri-overlay">
+                        <h4>RAPAT PANITIA</h4>
+                        <p>Momen diskusi dan koordinasi intensif antar-panitia guna mematangkan kesiapan serta alur pelaksanaan kegiatan.</p>
+                    </div>
+                </div>
+		<div class="galeri-card">
+                    <img src="ASPRAK.jpeg" alt="ASPRAK">
+                    <div class="galeri-overlay">
+                        <h4>ASISTEN PRAKTIKUM BDS</h4>
+                        <p>Pengalaman mendampingi dan memandu adik-adik tingkat dalam memahami konsep serta pengerjaan modul Praktikum Basis Data Spasial.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="HIDRO.png" alt="HIDRO">
+                    <div class="galeri-overlay">
+                        <h4>PRAKTIKUM HIDROGRAFI 1</h4>
+                        <p>Sesi pengamatan dan pencatatan data pasang surut air laut secara manual di pesisir pantai untuk penentuan datum kedalaman survei hidrografi..</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="PENDAF.jpeg" alt="PENDAF">
+                    <div class="galeri-overlay">
+                        <h4>PENDAFTARAN TANAH</h4>
+                        <p>Kegiatan latihan rekonstruksi batas, pemetaan bidang tanah, dan penyusunan dokumen yuridis sesuai kaidah pendaftaran tanah BPN.</p>
+                    </div>
+                </div>
+                <div class="galeri-card">
+                    <img src="FMKKN.jpeg" alt="FMKKN">
+                    <div class="galeri-overlay">
+                        <h4>FIRST MEET KELOMPOK KKN</h4>
+                        <p>Pertemuan awal bersama anggota kelompok Kuliah Kerja Nyata (KKN) untuk membangun pertemuan, koordinasi, dan perencanaan program kerja.</p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Pembungkus Semester 1 Ditutup Sempurna -->
+
+
+    </section>
+
+    <!-- 5. Kontak & Footer -->
+    <section id="kontak">
+        <h2 class="judul-bagian">Mari Terhubung!</h2>
+        <div class="kontak-container">
+            
+            <div class="kontak-card">
+                <h4>Email Student 📧</h4>
+                <a href="mailto:chyntia.124230059@student.itera.ac.id">chyntia.124230059@student.itera.ac.id</a>
+            </div>
+
+            <div class="kontak-card">
+                <h4>WhatsApp 📱</h4>
+                <a href="https://wa.me/62895327572312" target="_blank">+62 895-3275-72312</a>
+            </div>
+
+            <div class="kontak-card">
+                <h4>Alamat Tempat Tinggal 🏠</h4>
+                <p>Jl. Lapas Raya, Gang Perwira II, Way Huwi, Lampung Selatan</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Chyntia D.R Silaban | Dibuat dengan semangat :p </p>
+    </footer>
+
+</body>
+</html>
